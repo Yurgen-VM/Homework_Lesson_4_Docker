@@ -1,0 +1,123 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/Batch/Batch/{method}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "batche_api",          
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/Batch/Batch/{method}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete" ],
+      "SwaggerKey": "batch"
+    },
+    {
+      "DownstreamPathTemplate": "/Batch/Product/{method}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "batche_api",          
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/Batch/Product/{method}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete" ],
+      "SwaggerKey": "batch"
+    },
+    {
+      "DownstreamPathTemplate": "/Batch/Supplier/{method}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "batche_api",          
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/Batch/Supplier/{method}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete" ],
+      "SwaggerKey": "batch"
+    },
+    {
+      "DownstreamPathTemplate": "/Storage/Category/{method}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "storage_api",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/Storage/Category/{method}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "SwaggerKey": "storage"
+    },
+    {
+      "DownstreamPathTemplate": "/Storage/Product/{method}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "storage_api",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/Storage/Product/{method}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "SwaggerKey": "storage"
+    },
+    {
+      "DownstreamPathTemplate": "/Storage/Storage/{method}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "storage_api",
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/Storage/Storage/{method}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "SwaggerKey": "storage"
+    },
+    {
+      "DownstreamPathTemplate": "/Storage/Storehouse/{method}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "storage_api",          
+          "Port": 8080
+        }
+      ],
+      "UpstreamPathTemplate": "/Storage/Storehouse/{method}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "SwaggerKey": "storage"
+    }     
+
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:8888"
+  },
+  "SwaggerEndPoints": [
+    {
+      "Key": "batch",
+      "TransformByOcelotConfig": false,
+      "Config": [
+        {
+          "Name": "Batch API",
+          "Version": "v1",
+          "Url": "http://localhost:8003/swagger/v1/swagger.json"
+        }
+      ]
+    },    
+    {
+      "Key": "storage",
+      "TransformByOcelotConfig": false,
+      "Config": [
+        {
+          "Name": "Storage API",
+          "Version": "v1",
+          "Url": "http://localhost:8002/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ]
+}

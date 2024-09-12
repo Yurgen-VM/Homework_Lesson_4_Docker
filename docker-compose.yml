@@ -1,0 +1,50 @@
+version: '3.4'
+
+services:
+  api_gw:
+    
+    container_name: api_gw
+    #image: ${DOCKER_REGISTRY-}api_gw
+    build:
+      context: .
+      dockerfile: API_GW/Dockerfile
+    ports:
+        - 8888:8080
+    networks:
+        - mynetwork
+    depends_on:
+      - storage_api
+      - batche_api
+
+  storage_api:
+    
+    container_name: storage_api
+    #image: ${DOCKER_REGISTRY-}storage_api
+    build:
+      context: .
+      dockerfile: Lesson_3_GraphQL/Dockerfile
+             
+    ports:
+      - 8002:8080
+    networks:
+      - mynetwork
+
+
+  batche_api:
+    
+    container_name: batche_api
+    #image: ${DOCKER_REGISTRY-}batche_api
+    build:
+      context: .
+      dockerfile: BatcheAPI/Dockerfile
+    
+    ports:
+      - 8003:8080
+    networks:
+      - mynetwork
+
+
+networks:
+  mynetwork:
+    driver: bridge
+
